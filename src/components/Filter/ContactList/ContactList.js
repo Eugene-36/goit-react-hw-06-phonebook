@@ -1,10 +1,12 @@
 import React from "react";
 import { v4 as unId } from "uuid";
 import Contacts from "./Contacts.module.css";
+import { connect } from "react-redux";
+import actions from "../../../redux/actions/userActions";
 
-const ContactList = ({ contacts, onDelete }) => (
+const ContactList = ({ allUsers, onDelete }) => (
   <ul className="TodoList">
-    {contacts.map(({ id, name, number }) => (
+    {allUsers.map(({ id, name, number }) => (
       <li key={unId()} className="listStyle">
         <p className="TodoList__text">
           {name}:{number}
@@ -20,4 +22,9 @@ const ContactList = ({ contacts, onDelete }) => (
     ))}
   </ul>
 );
-export default ContactList;
+const mapStateToProps = (store) => ({ allUsers: store.allUsers });
+
+const mapDispatchToProps = {
+  onDelete: (id) => actions.deleteUser(id),
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

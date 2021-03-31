@@ -2,6 +2,11 @@ import { Component } from "react";
 import shortid from "shortid";
 import s from "./Form.module.css";
 import { v4 as unId } from "uuid";
+
+//todo:
+import { connect } from "react-redux";
+import userAction from "../../redux/actions/createUser";
+import addUserAction from "../../redux/actions/userActions";
 class Form extends Component {
   loginInputId = shortid.generate();
   numberInputId = shortid.generate();
@@ -23,9 +28,18 @@ class Form extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    this.props.onSubmit(this.state);
+    //console.log(this.state);
+
     this.reset();
+
+    //todo: редакс передал создание нового юзера
+    // const obj = {
+    //   name: this.state.name,
+    //   number: this.state.number,
+    //   id: this.state.id,
+    // };
+
+    this.props.y(this.state);
   };
   reset = () => {
     this.setState({ name: "", number: "" });
@@ -65,4 +79,7 @@ class Form extends Component {
   }
 }
 
-export default Form;
+const mapDispatchToProps = {
+  y: addUserAction.addUser,
+};
+export default connect(null, mapDispatchToProps)(Form);
