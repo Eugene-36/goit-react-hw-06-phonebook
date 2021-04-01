@@ -1,8 +1,8 @@
 import { Component } from "react";
 import "./App.css";
 //todo: затягиваю hook.
-import { connect } from "react-redux";
-import addUserAction from "./redux/actions/userActions";
+// import { connect } from "react-redux";
+// import addUserAction from "./redux/actions/userActions";
 //todo: Второе дз Phone book
 
 import Form from "./components/Form/Form";
@@ -68,7 +68,7 @@ class App extends Component {
           <h1>Phonebook</h1>
           <Form />
           <h2>Contacts</h2>
-          {/* <Filter value={filter} onChange={this.changeFilter} /> */}
+          <Filter />
           <ContactList />
         </div>
       </div>
@@ -77,3 +77,5 @@ class App extends Component {
 }
 
 export default App;
+
+//value={filter} onChange={this.changeFilter} в фильтре было

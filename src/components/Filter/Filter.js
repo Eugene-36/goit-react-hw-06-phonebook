@@ -1,11 +1,23 @@
 import React from "react";
-
-const Filter = ({ value, onChange }) => {
+import filterUser from "../../redux/actions/filterUser";
+import { connect } from "react-redux";
+//console.log(filterUser);
+// console.log(this.props);
+//console.log(this.props);
+const Filter = (props) => {
+  console.log(props);
+  const { value, onChange } = props;
   return (
     <label>
       Find contacts by name
-      <input type="text" value={value} onChange={onChange} />
+      <input type="text" vlaue={value} onChange={onChange} />
     </label>
   );
 };
-export default Filter;
+const mapStateToProps = (state) => ({ value: state.allUsers.filter });
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (e) => dispatch(filterUser.changeFilter(e.target.value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
