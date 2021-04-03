@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 //console.log(props);
 const Filter = ({ value, onChange }) => {
-  console.log(value);
+  //console.log(value);
   // const { value, onChange } = this.props;
   // console.log(value);
   return (
