@@ -1,32 +1,10 @@
 import { number } from "prop-types";
+import { createAction } from "@reduxjs/toolkit";
 
-const addUser = (userObject) => {
-  return {
-    type: "ADD_USER",
-    payload: userObject,
-  };
-};
+const addUser = createAction("ADD_USER");
 
-const deleteUser = (name) => {
-  return {
-    type: "DELET_USER",
-    payload: name,
-  };
-};
+const deleteUser = createAction("DELET_USER");
 
-const changeFilter = (value) => ({
-  type: "CHANGE_FILTER",
-  payload: value,
-});
+const changeFilter = createAction("CHANGE_FILTER");
 
-// const addUser = (userObject) => {
-//   return {
-//     type: "ADD_USER",
-//     payload: {
-//       id: id(),
-//       mail: userObject.email,
-//       pass: userObject.pass,
-//     },
-//   };
-// };
 export default { addUser, deleteUser, changeFilter };

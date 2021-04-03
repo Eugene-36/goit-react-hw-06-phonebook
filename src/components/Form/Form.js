@@ -5,7 +5,7 @@ import { v4 as unId } from "uuid";
 
 //todo:
 import { connect } from "react-redux";
-import userAction from "../../redux/actions/createUser";
+import userAction from "../../redux/actions/create-user";
 import addUserAction from "../../redux/actions/userActions";
 class Form extends Component {
   loginInputId = shortid.generate();
@@ -28,18 +28,13 @@ class Form extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(this.state);
-
-    this.reset();
 
     //todo: редакс передал создание нового юзера
-    // const obj = {
-    //   name: this.state.name,
-    //   number: this.state.number,
-    //   id: this.state.id,
-    // };
-
-    this.props.y(this.state);
+    if (this.state.name !== "") {
+      this.props.y(this.state);
+      this.reset();
+      return;
+    }
   };
   reset = () => {
     this.setState({ name: "", number: "" });

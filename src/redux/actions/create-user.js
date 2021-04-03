@@ -1,14 +1,13 @@
 import { number } from "prop-types";
-
-const createUser = (user) => {
+import { createAction } from "@reduxjs/toolkit";
+const createUser = createAction("actions/create_User", (user) => {
   return {
-    type: "create_User",
     payload: {
       name: user.name,
       number: user.number,
       id: user.id,
     },
   };
-};
+});
 
 export default createUser;
