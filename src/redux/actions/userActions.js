@@ -13,6 +13,12 @@ const deleteUser = (name) => {
     payload: name,
   };
 };
+
+const changeFilter = (value) => ({
+  type: "CHANGE_FILTER",
+  payload: value,
+});
+
 // const addUser = (userObject) => {
 //   return {
 //     type: "ADD_USER",
@@ -23,4 +29,4 @@ const deleteUser = (name) => {
 //     },
 //   };
 // };
-export default { addUser, deleteUser };
+export default { addUser, deleteUser, changeFilter };

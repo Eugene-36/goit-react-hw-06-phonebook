@@ -1,6 +1,8 @@
-const init = [{ name: "", number: "", id: "" }];
+import { combineReducers } from "redux";
+// const init = [{ name: "", number: "", id: "" }];
 
-const allUsersReducers = (state = init, { type, payload }) => {
+const contacts = (state = [], { type, payload }) => {
+  console.log(state);
   switch (type) {
     case "ADD_USER":
       const newS = [...state, payload];
@@ -15,5 +17,17 @@ const allUsersReducers = (state = init, { type, payload }) => {
       return state;
   }
 };
+const filter = (state = "", { type, payload }) => {
+  switch (type) {
+    case "CHANGE_FILTER":
+      return payload;
 
-export default allUsersReducers;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  contacts,
+  filter,
+});

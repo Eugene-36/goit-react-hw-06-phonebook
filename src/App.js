@@ -7,7 +7,9 @@ import "./App.css";
 
 import Form from "./components/Form/Form";
 import Filter from "./components/Filter/Filter";
-import ContactList from "./components/Filter/ContactList/ContactList";
+import ContactList from "./components/ContactList/ContactList";
+
+// import ContactList from "./components/Filter/ContactList/ContactList";
 class App extends Component {
   // state = {
   //   contacts: [

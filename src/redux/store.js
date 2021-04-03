@@ -1,14 +1,18 @@
-import { createStore, combineReducers } from "redux";
+//import { configureStore, combineReducers,  } from "@reduxjs/toolkit";
 
-import allUsersReducers from "./reducers/allUsersReducer";
-import changeReducer from "./reducers/filterUserReducer";
-const rootReducer = combineReducers({
-  allUsers: allUsersReducers,
-  changeFilter: changeReducer,
+import { createStore, combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+//import allUsersReducers from "./reducers/allUsersReducer";
+import todosReducer from "../redux/reducers/allUsersReducer";
+
+//import todosReducer from "../redux/reducers/filterUserReducer";
+
+const contactsReducer = combineReducers({
+  allUsers: todosReducer,
+
+  //changeFilter: todosReducer,
 });
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+
+const store = createStore(contactsReducer, composeWithDevTools());
 
 export default store;
